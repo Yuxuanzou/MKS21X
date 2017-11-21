@@ -21,7 +21,7 @@ public class WordSearch {
 	data = new char[rows][cols];
 	randgen = new Random();
 	try {
-	    File f = new File("words.txt");
+	    File f = new File(fileName);
 	    Scanner in = new Scanner(f);
 	    while (in.hasNext()){
 		String line = in.next();
@@ -39,7 +39,7 @@ public class WordSearch {
 	data = new char[rows][cols];
 	randgen = new Random(randSeed);
 	try {
-	    File f = new File("words.txt");
+	    File f = new File(fileName);
 	    Scanner in = new Scanner(f);
 	    while (in.hasNext()){
 		String line = in.next();
@@ -58,7 +58,7 @@ public class WordSearch {
 	data = new char[rows][cols];
 	randgen = new Random(randSeed);
 	try {
-	    File f = new File("words.txt");
+	    File f = new File(fileName);
 	    Scanner in = new Scanner(f);
 	    while (in.hasNext()){
 		String line = in.next();
