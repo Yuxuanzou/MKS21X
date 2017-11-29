@@ -3,10 +3,7 @@ public class CirculatingBook extends LibraryBook{
     private String dueDate;
 
     public CirculatingBook(String author, String title, String ISBN, String callNumber){
-        super.setAuthor(author);
-	super.setTitle(title);
-	super.setISBN(ISBN);
-	super.setCallNumber(callNumber);
+        super(author,title,ISBN,callNumber);
     }
     public String getCurrentHolder(){
         return currentHolder;
@@ -32,7 +29,7 @@ public class CirculatingBook extends LibraryBook{
     }
     
     public String circulationStatus(){
-        if (currentHolder.equals(null)){
+        if (currentHolder == null){
             return "book available on shelf";
         }
         else {
