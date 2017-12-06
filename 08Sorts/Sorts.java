@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Sorts{
     public static String name(){
         return "10.Zou.Yuxuan";
@@ -19,4 +21,26 @@ public class Sorts{
             data[i] = num;
         }
     }
+
+    private static boolean helpMe(int i, int k){
+	return i < k;
+    }
+
+    public static void InsertionSort(int [] data){
+	int temp;
+	for (int i = 1;i < data.length;i++){
+	    while (helpMe(data[tick],data[tick - 1])){
+		int tick = i; 
+		temp = data[tick - 1];
+		data[tick - 1] = data[tick];
+		data[tick] = temp;
+	    }
+	}
+    }
+
+    public static void main(String[]args){
+	int [] a = {123,213,41,33,23,55,313,1323};
+	InsertionSort(a);
+	System.out.println(Arrays.toString(a));
+    } 
 }
