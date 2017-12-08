@@ -4,6 +4,14 @@ public class Barcode implements Comparable<Barcode>{
     private String zip;
     
     public Barcode(String zip){
+        try {
+            Integer.parseInt(zip);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+        if (zip.length() != 5){
+            throw new IllegalArgumentException();
+        }
         this.zip = zip;
     }
     
@@ -50,6 +58,14 @@ public class Barcode implements Comparable<Barcode>{
     }
     
     public static String toCode(String zip){
+        try {
+            Integer.parseInt(zip);
+        } catch (NumberFormatException e){
+            throw new IllegalArgumentException();
+        }
+        if (zip.length() != 5){
+            throw new IllegalArgumentException();
+        }
         String code = "";
         for (int i = 0;i < zip.length();i++){
             code += singleConvert(Integer.parseInt(zip.substring(i,i + 1)));
