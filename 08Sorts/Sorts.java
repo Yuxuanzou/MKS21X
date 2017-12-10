@@ -49,7 +49,7 @@ public class Sorts{
         }
     }
 
-    public static void InsertionSort(int [] data){
+    public static void insertionSort(int [] data){
        int index;
        int num;
 	   for (int i = 0;i < data.length;i++){
@@ -64,10 +64,25 @@ public class Sorts{
            }
        }
     }
+    
+    public static void bubbleSort(int [] data){
+        int whereToStop = data.length;
+        int num;
+        while (isSorted(data) == false){
+            for (int c = 0; c < whereToStop - 1; c++){
+                num = data[c];
+                if (num > data[c + 1]){
+                    data[c] = data[c + 1];
+                    data[c + 1] = num;
+                }
+            }
+            whereToStop -= 1;
+        }
+    }
 
     //public static void main(String[]args){
 	//int [] a = {123,213,41,33,23,55,313,1323};
-	//Sorts.InsertionSort(a);
+	//Sorts.bubbleSort(a);
 	//System.out.println(Arrays.toString(a));
     //} 
 }
