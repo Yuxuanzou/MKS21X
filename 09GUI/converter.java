@@ -2,11 +2,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class converter extends JFrame implements ActionListener{
     private Container pane;
-    private JButton b;
-    private JLabel l;
+    private JButton f;
+    private JCheckBox d;
     private JTextField t;
     private JCheckBox c;
 	//CONSTRUCTOR SETS EVERYTHING UP
@@ -19,31 +20,39 @@ public class converter extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	pane.setLayout(new FlowLayout());  //NOTE!! THIS CAN BE CHANGED (see below)
 	
-	b = new JButton("Do Nothing");
+	f = new JButton("do it");
 	t = new JTextField(12);
-	c = new JCheckBox("Overclock!!!");
+    d = new JCheckBox("Convert to Celsius");
+	c = new JCheckBox("Convert to Farenheit");
     
-    b.addActionListener(this);
+    f.addActionListener(this);
     t.addActionListener(this);
     c.addActionListener(this);
-    
-	pane.add(l);
-	pane.add(b);
+    d.addActionListener(this);
+	pane.add(f);
 	pane.add(t);
+    pane.add(d);
 	pane.add(c);
     }
 
     public void actionPerformed(ActionEvent e){
-	String s = e.getActionCommand();
-	
+        String s = e.getActionCommand();
+	    if (s.equals("do it")){
+            if(d.isSelected()){
+                t.setText(FtoC(Double.parseDouble(t.getText())) + "");
+            }
+            else if (c.isSelected()){
+                t.setText(CtoF(Double.parseDouble(t.getText())) + "");
+            }
+        }
     }
     
     public static double CtoF(double c){
-	return c*9.0 / 5.0 + 32;
+	   return c*9.0 / 5.0 + 32;
     }
     
     public static double FtoC(double f){
-	return (f - 32) * 5.0 / 9.0;
+	   return (f - 32) * 5.0 / 9.0;
     }
 
     public static void main(String[] args){
