@@ -20,9 +20,13 @@ public class converter extends JFrame implements ActionListener{
 	pane.setLayout(new FlowLayout());  //NOTE!! THIS CAN BE CHANGED (see below)
 	
 	b = new JButton("Do Nothing");
-	l = new JLabel("This is AWESOME! (lies)",null,JLabel.CENTER);
 	t = new JTextField(12);
 	c = new JCheckBox("Overclock!!!");
+    
+    b.addActionListener(this);
+    t.addActionListener(this);
+    c.addActionListener(this);
+    
 	pane.add(l);
 	pane.add(b);
 	pane.add(t);
