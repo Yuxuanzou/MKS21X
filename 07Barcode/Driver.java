@@ -1,30 +1,18 @@
-public class Driver {
-    public static void main(String[] args) {
-        Barcode A = new Barcode("08451");
-        Barcode B = new Barcode("51401");
-        Barcode C = new Barcode("51401");
-        
-        System.out.println(A); // |||:::|::|::|::|:|:|::::|||::|:| 08451
-        System.out.println(A.getCode()); // |||:::|::|::|::|:|:|::::|||::|:|
-        System.out.println(A.getZip()); // 08451
-        System.out.println();
-        
-        System.out.println(B); // |:|:|::::||:|::|||::::::||:::||| 51401
-        System.out.println(B.getCode()); // |:|:|::::||:|::|||::::::||:::|||
-        System.out.println(B.getZip()); // 51401
-        System.out.println();
-        
-        System.out.println(A.equals(C)); // false
-        System.out.println(B.equals(C)); // true
-        System.out.println();
-  
-        System.out.println(A.compareTo(C)); // -5 , A less than C
-        System.out.println(B.compareTo(C)); // 0 , B equal C
-        System.out.println();
-        
-        System.out.println(Barcode.checkSum("51401"));
-        System.out.println("|:|:|::::||:|::|||::::::||:::||| : " + Barcode.toZip("|:|:|::::||:|::|||::::::||:::|||")); // 51401
-        System.out.println("51401 : " + Barcode.toCode("51401")); // |:|:|::::||:|::|||::::::||:::|||
-        System.out.println(Barcode.toZip("|||:::|::|::|::|:|:|::::|||::|||"));
+public class Driver{
+    public static void main(String[]args){
+    //Barcode e = new Barcode("asdfd"); //Contains non-barcode characters, should throw IllegalArgumentException
+    //Barcode f = new Barcode("1234"); //Invalid length, should throw IllegalArgumentException
+
+    System.out.println(Barcode.toCode("00294")); // |||:::||:::::|:||:|:::|::|:|:|:|
+	//System.out.println(Barcode.toCode("asdfd")); //Contains non-barcode characters, should throw IllegalArgumentException
+	//	System.out.println(Barcode.toCode("1234")); //Invalid length, should throw IllegalArgumentException
+
+	//	System.out.println(Barcode.toZip("|||:::||:::::|:||:|:::|::|:|:|:|")); //Should return 00294
+	//	System.out.println(Barcode.toZip("|:::||:::||::|:|:|::|:|:|:::||:")); //Invalid length, should throw IllegalArgumentException
+//System.out.println(Barcode.toZip("|:::||:::||::|:|:|::|:|:|:::||||")); //Incorrect checksum, should throw IllegalArgumentException
+	//System.out.println(Barcode.toZip("|a::||:::||::|:|:|::|:|:|:::||:|")); //Contains non-barcode characters, should throw IllegalArgumentException
+	//	System.out.println(Barcode.toZip("::::||:::||::|:|:|::|:|:|:::||:|")); //First character is not '|', should throw IllegalArgumentException
+	//	System.out.println(Barcode.toZip("|:::||:::||::|:|:|::|:|:|:::||::")); //Last character is not '|', should throw IllegalArgumentException
+	//	System.out.println(Barcode.toZip("|::::::::||::|:|:|::|:|:|:::||:|")); //Invalid character sequence, should throw IllegalArgumentException
     }
 }
