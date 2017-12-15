@@ -10,6 +10,10 @@ public class converter extends JFrame implements ActionListener{
     private JCheckBox d;
     private JTextField t;
     private JCheckBox c;
+    private ButtonGroup CandF = new ButtonGroup();
+    private JRadioButton FtoC;
+    private JRadioButton CtoF;
+    
 	//CONSTRUCTOR SETS EVERYTHING UP
     public converter() {
 	this.setTitle("My first GUI");
@@ -22,28 +26,39 @@ public class converter extends JFrame implements ActionListener{
 	
 	f = new JButton("do it");
 	t = new JTextField(12);
-    d = new JCheckBox("Convert to Celsius");
-	c = new JCheckBox("Convert to Farenheit");
-    
+    //d = new JCheckBox("Convert to Celsius");
+	//c = new JCheckBox("Convert to Fahrenheit");
+    CtoF = new JRadioButton("Celsius to Fahrenheit");
+    FtoC = new JRadioButton("Fahrenheit to Celsius");
+    CandF.add(CtoF);
+    CandF.add(FtoC);
     f.addActionListener(this);
     t.addActionListener(this);
-    c.addActionListener(this);
-    d.addActionListener(this);
+    //c.addActionListener(this);
+    //d.addActionListener(this);
+    CtoF.addActionListener(this);
+    FtoC.addActionListener(this);
 	pane.add(f);
 	pane.add(t);
-    pane.add(d);
-	pane.add(c);
+    //pane.add(d);
+	//pane.add(c);
+    pane.add(CtoF);
+    pane.add(FtoC);
     }
 
     public void actionPerformed(ActionEvent e){
         String s = e.getActionCommand();
-	    if (s.equals("do it")){
-            if(d.isSelected()){
-                t.setText(FtoC(Double.parseDouble(t.getText())) + "");
+	    try{
+            if (s.equals("do it")){
+                if(FtoC.isSelected()){
+                    t.setText(FtoC(Double.parseDouble(t.getText())) + "");
+                }
+                else if (CtoF.isSelected()){
+                    t.setText(CtoF(Double.parseDouble(t.getText())) + "");
+                }
             }
-            else if (c.isSelected()){
-                t.setText(CtoF(Double.parseDouble(t.getText())) + "");
-            }
+        } catch (NumberFormatException b){
+            t.setText("Need a number");
         }
     }
     
