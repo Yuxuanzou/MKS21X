@@ -96,7 +96,7 @@ public class SuperArray{
     }
 
     public void add(int index,String target){
-	if (index < 0 || index >= size()){
+	if (index < 0 || index > size()){
 	    return;
 	}
 	if (size == data.length){
