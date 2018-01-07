@@ -1,7 +1,7 @@
-public class ReverseCharSequence implements CharSequence{
+public class ReversedCharSequence implements CharSequence{
     private String data = "";
 
-    public ReverseCharSequence(String stuff){
+    public ReversedCharSequence(String stuff){
 	String reverse = "";
 	for (int i = stuff.length() - 1;i >= 0;i--){
 	    reverse += stuff.substring(i,i+1);
